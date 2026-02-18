@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { AppStatus, LinkItem, LinkResponse } from './types';
-import { generateLinks } from './services/geminiService';
-import LoadingState from './components/LoadingState';
-import LinksSection from './components/LinksSection';
+import { AppStatus, LinkItem, LinkResponse } from './types.ts';
+import { generateLinks } from './services/geminiService.ts';
+import LoadingState from './components/LoadingState.tsx';
+import LinksSection from './components/LinksSection.tsx';
 
 const App: React.FC = () => {
   const [url] = useState('https://hugosuez.com.br/');
@@ -34,7 +34,6 @@ const App: React.FC = () => {
   const { mainLinks, legalLinks } = useMemo(() => {
     if (!data) return { mainLinks: [], legalLinks: [] };
     
-    // Explicit manual overrides for the specific premium layout requested
     const finalLinks: LinkItem[] = [
       { label: 'Método Ornamento Expert', url: 'https://ornamentoexpert.com.br/', category: 'Método' },
       { label: 'Desafio Agilidade e Definição 30D', url: 'https://hugosuez.com.br/desafio-de-agilidade-e-definicao-vocal/', category: 'Desafio' },
@@ -55,7 +54,6 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center selection:bg-indigo-500/30 overflow-hidden">
       
-      {/* Cinematic Header/Top Accent */}
       <div className="w-full h-1 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
 
       <main className="flex-1 w-full max-w-2xl px-6 pt-16 pb-24 flex flex-col items-center">
@@ -82,7 +80,6 @@ const App: React.FC = () => {
         {status === AppStatus.SUCCESS && data && (
           <div className="w-full space-y-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             
-            {/* Profile Section */}
             <header className="flex flex-col items-center text-center gap-8">
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-tr from-indigo-500 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
@@ -119,7 +116,6 @@ const App: React.FC = () => {
               </div>
             </header>
 
-            {/* Links Section */}
             <div className="space-y-8">
               <div className="flex items-center gap-4">
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-800"></div>
@@ -130,7 +126,6 @@ const App: React.FC = () => {
               <LinksSection links={mainLinks} />
             </div>
 
-            {/* Legal Footer Links Inside Main */}
             <div className="flex flex-col items-center gap-8 pt-8">
               <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
                 {legalLinks.map((link, idx) => (

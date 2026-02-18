@@ -55,6 +55,10 @@
         .blob-1 { top: -10%; left: -10%; animation: float 25s infinite alternate ease-in-out; }
         .blob-2 { bottom: -10%; right: -10%; animation: float 30s infinite alternate-reverse ease-in-out; background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(0, 0, 0, 0) 70%); }
     </style>
+    <script>
+      // Shim para evitar erro de 'process is not defined' no navegador
+      window.process = { env: { API_KEY: '' } };
+    </script>
 <script type="importmap">
 {
   "imports": {
@@ -70,5 +74,7 @@
     <div class="animated-blob blob-1"></div>
     <div class="animated-blob blob-2"></div>
     <div id="root"></div>
+    <!-- Ponto de entrada do aplicativo React -->
+    <script type="module" src="index.tsx"></script>
 </body>
 </html>

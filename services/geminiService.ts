@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { LinkResponse } from "../types";
+import { LinkResponse } from "../types.ts";
 
 export const generateLinks = async (url: string): Promise<LinkResponse> => {
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
