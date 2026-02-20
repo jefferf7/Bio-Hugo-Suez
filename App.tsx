@@ -32,14 +32,12 @@ const App: React.FC = () => {
   }, []);
 
   const { mainLinks, legalLinks } = useMemo(() => {
-    if (!data) return { mainLinks: [], legalLinks: [] };
-    
     const finalLinks: LinkItem[] = [
       { label: 'Método Ornamento Expert', url: 'https://ornamentoexpert.com.br/', category: 'Método' },
       { label: 'Desafio Agilidade e Definição 30D', url: 'https://hugosuez.com.br/desafio-de-agilidade-e-definicao-vocal/', category: 'Desafio' },
       { label: 'Curso Combo Expert', url: 'https://hugosuez.com.br/combo-rapido-cantor-expert/', category: 'Combo' },
       { label: 'Aulas Particulares', url: `https://wa.me/5511986041291?text=${encodeURIComponent("Olá, gostaria de obter informações de aulas particulares")}`, category: 'Contato' },
-      { label: 'Pack Grátis de Exercícios Vocais', url: '#', category: 'Baixar' },
+      { label: 'Pack Grátis de Exercícios Vocais', url: 'https://hugosuez.com.br/pack-gratis/', category: 'Baixar' },
       { label: 'Inscreva-se no YouTube', url: 'https://www.youtube.com/@hugosuez', category: 'Canal Hugo Suez' }
     ];
 

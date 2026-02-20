@@ -1,0 +1,26 @@
+
+# 1. Configurar Tipos MIME Corretos
+<IfModule mod_mime.c>
+    AddType application/javascript .ts
+    AddType application/javascript .tsx
+    AddHandler application/javascript .ts
+    AddHandler application/javascript .tsx
+</IfModule>
+
+# 2. Prevenir bloqueio de 'nosniff' pelo navegador
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# 3. Evitar interferência de regras de Rewrite (comum em sites com WordPress)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Se o arquivo existir fisicamente, não aplique redirecionamentos
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule \.(ts|tsx|js|jsx)$ - [L]
+</IfModule>
+
+# 4. Habilitar Gzip para performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+</IfModule>
