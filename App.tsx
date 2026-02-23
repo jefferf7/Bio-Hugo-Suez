@@ -40,7 +40,7 @@ const App: React.FC = () => {
 
   const { mainLinks, legalLinks } = useMemo(() => {
     const finalLinks: LinkItem[] = [
-      { label: 'Método Ornamento Expert', url: 'https://ornamentoexpert.com.br/', category: 'Método' },
+      { label: 'Método Ornamento Expert', url: 'https://metodoornamentoexpert.com/', category: 'Método' },
       { label: 'Desafio Agilidade e Definição 30D', url: 'https://hugosuez.com.br/desafio-de-agilidade-e-definicao-vocal/', category: 'Desafio' },
       { label: 'Curso Combo Expert', url: 'https://hugosuez.com.br/combo-rapido-cantor-expert/', category: 'Combo' },
       { label: 'Aulas Particulares', url: `https://wa.me/5511986041291?text=${encodeURIComponent("Olá, gostaria de obter informações de aulas particulares")}`, category: 'Contato' },
