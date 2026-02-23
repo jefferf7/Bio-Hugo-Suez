@@ -7,13 +7,20 @@ import LinksSection from './components/LinksSection';
 
 const App: React.FC = () => {
   const [url] = useState('https://hugosuez.com.br/');
-  const [status, setStatus] = useState<AppStatus>(AppStatus.IDLE);
-  const [data, setData] = useState<LinkResponse | null>(null);
+  const [status, setStatus] = useState<AppStatus>(AppStatus.SUCCESS);
+  const [data, setData] = useState<LinkResponse | null>({
+    name: "Hugo Suez",
+    shortDescription: "Vocal Coach Expert - Sistema Movimento e Expressividade Vocal™",
+    links: [],
+    sources: []
+  });
   const [error, setError] = useState<string | null>(null);
 
   const profileImageUrl = "https://hugosuez.com.br/wp-content/uploads/al_opt_content/IMAGE/hugosuez.com.br/wp-content/uploads/2022/04/1-removebg-preview.png?bv_host=hugosuez.com.br&bv-resized-infos=bv_resized_mobile%3A480%2A284%3Bbv_resized_ipad%3A649%2A384%3Bbv_resized_desktop%3A649%2A384";
 
   const handleGenerate = async () => {
+    // Mantemos a função caso você queira usar IA para algo no futuro, 
+    // mas ela não será chamada automaticamente no início.
     if (!url) return;
     setStatus(AppStatus.LOADING);
     setError(null);
@@ -28,7 +35,7 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    handleGenerate();
+    // Removido o handleGenerate() automático para economizar API
   }, []);
 
   const { mainLinks, legalLinks } = useMemo(() => {
