@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hugo Suez | Sistema Movimento e Expressividade Vocal™</title>
     
-    <!-- Tailwind CSS e FontAwesome -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Babel Standalone: Transpila TSX/TS direto no navegador -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -53,57 +49,14 @@
 
         .blob-1 { top: -10%; left: -10%; animation: float 25s infinite alternate ease-in-out; }
         .blob-2 { bottom: -10%; right: -10%; animation: float 30s infinite alternate-reverse ease-in-out; background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(0, 0, 0, 0) 70%); }
-        
-        /* Display de erro para o usuário caso o servidor bloqueie os arquivos */
-        #mime-error-msg {
-            display: none;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ef4444;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            z-index: 9999;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
     </style>
-    
-    <script>
-      window.process = { env: { API_KEY: '' } };
-      // Monitor de erro de carregamento
-      window.addEventListener('error', function(e) {
-          if (e.target.tagName === 'SCRIPT' || e.message?.includes('MIME')) {
-              document.getElementById('mime-error-msg').style.display = 'block';
-          }
-      }, true);
-    </script>
-
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@^19.2.4",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-        "react/": "https://esm.sh/react@^19.2.4/",
-        "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
-      }
-    }
-    </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body class="premium-gradient">
-    <div id="mime-error-msg">
-        Atenção: O servidor bloqueou o carregamento dos scripts. Verifique o arquivo .htaccess.
-    </div>
-
     <div class="animated-blob blob-1"></div>
     <div class="animated-blob blob-2"></div>
     <div id="root"></div>
     
-    <!-- Importante: data-presets="react,typescript" permite ao Babel ler o arquivo .tsx -->
-    <script type="text/babel" data-type="module" data-presets="react,typescript" src="index.tsx"></script>
-<script type="module" src="/index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
+

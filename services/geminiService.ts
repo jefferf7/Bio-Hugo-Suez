@@ -1,9 +1,13 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { LinkResponse } from "../types.ts";
+import { LinkResponse } from "../types";
 
 export const generateLinks = async (url: string): Promise<LinkResponse> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const apiKey = process.env.API_KEY;
+  if (!apiKey) {
+    throw new Error("API Key não configurada. Por favor, adicione GEMINI_API_KEY às variáveis de ambiente.");
+  }
+  const ai = new GoogleGenAI({ apiKey });
   
   const prompt = `
     Analise profundamente o conteúdo do site: ${url}. 

@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { AppStatus, LinkItem, LinkResponse } from './types.ts';
-import { generateLinks } from './services/geminiService.ts';
-import LoadingState from './components/LoadingState.tsx';
-import LinksSection from './components/LinksSection.tsx';
+import { AppStatus, LinkItem, LinkResponse } from './types';
+import { generateLinks } from './services/geminiService';
+import LoadingState from './components/LoadingState';
+import LinksSection from './components/LinksSection';
 
 const App: React.FC = () => {
   const [url] = useState('https://hugosuez.com.br/');
