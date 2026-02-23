@@ -80,8 +80,14 @@ export const generateLinks = async (url: string): Promise<LinkResponse> => {
       ...data,
       sources: sources
     };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error generating links:", error);
-    throw new Error("Falha ao analisar os links do site. Verifique a URL.");
+    
+    // Tratamento específico para erro de cota (429)
+    if (error.message?.includes("429") || error.message?.includes("RESOURCE_EXHAUSTED")) {
+      throw new Error("Limite de cota excedido. Por favor, aguarde um minuto ou verifique seu plano no Google AI Studio (ai.google.dev).");
+    }
+    
+    throw new Error("Falha ao analisar os links do site. Verifique a URL ou tente novamente mais tarde.");
   }
 };
